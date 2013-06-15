@@ -7,6 +7,7 @@ import freemarker.template.TemplateException;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -19,26 +20,25 @@ import org.xml.sax.SAXException;
  */
 public class Templating {
 
-    private File location = new File("src/main/resources");
-    private String templateFile = "template.txt";
+    private File location = new File("src/main/resources/template.txt");
     private Template template;
 
     public Templating() throws IOException {
         Configuration cfg = new Configuration();
-        cfg.setDirectoryForTemplateLoading(location);
+        cfg.setDirectoryForTemplateLoading(location.getParentFile());
         cfg.setEncoding(new Locale("pl", "PL"), "UTF-8");
         cfg.setObjectWrapper(ObjectWrapper.DEFAULT_WRAPPER);
         cfg.setDefaultEncoding("UTF-8");
         cfg.setOutputEncoding("UTF-8");
-        template = cfg.getTemplate(templateFile);
+        template = cfg.getTemplate(location.getName());
     }
 
     public void parse() throws IOException, TemplateException, SAXException, ParserConfigurationException {
         Map root = new HashMap();
         loadXml(root, new File("src/main/resources/report.xml"));
-        root.put("time", "my time");
+        root.put("time", new Date());
         root.put("version", "123");
-        FileWriter writer = new FileWriter(new File("src/main/resources/product.txt"));
+        FileWriter writer = new FileWriter(new File("src/main/resources/report.txt"));
         template.process(root, writer);
         writer.flush();
 

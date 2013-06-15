@@ -1,5 +1,5 @@
 <#ftl ns_prefixes={"tk":"http://biz.letsweb.xml.storage/schemas"}>
-${time}
+Last check: ${time?string("EEE, MMM d, ''yy")}
 
 ||week||blockers||
 <#list xml["tk:report/tk:stats/tk:week"] as week>
