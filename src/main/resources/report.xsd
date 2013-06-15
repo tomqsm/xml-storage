@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://biz.letsweb.xml.storage/schemas"
+           attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.0" 
+           xmlns="http://biz.letsweb.xml.storage/schemas report.xsd"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="report">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="stats">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:int" name="blockers"/>
+                            <xs:element type="xs:int" name="critical"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="project" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="week" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:double" name="unit"/>
+                                        <xs:element type="xs:double" name="overall"/>
+                                        <xs:element type="xs:int" name="blockers"/>
+                                        <xs:element type="xs:int" name="critical"/>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:int" name="number" use="optional"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:string" name="name" use="optional"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+<!--http://www.freeformatter.com/xsd-generator.html-->

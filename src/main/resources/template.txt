@@ -1,0 +1,7 @@
+<#ftl ns_prefixes={"tk":"http://biz.letsweb.xml.storage/schemas"}>
+${time}
+
+||week||blockers||
+<#list xml["tk:report/tk:stats/tk:week"] as week>
+| ${week["@number"]} | ${week["tk:blockers"]} |
+</#list>

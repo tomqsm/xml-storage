@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://biz.letsweb.xml.storage/schemas"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://biz.letsweb.xml.storage/schemas report.xsd">
+    <stats>
+        <week number="24">
+            <blockers>9</blockers>
+            <critical>0</critical>
+        </week>
+        <week number="24">
+            <blockers>9</blockers>
+            <critical>0</critical>
+        </week>
+    </stats>
+    <project name="projekt0">
+        <week number="2">
+            <unit>32.2</unit>
+            <overall>12.1</overall>
+            <blockers>1</blockers>
+            <critical>0</critical>
+        </week>
+        <week number="2">
+            <unit>32.2</unit>
+            <overall>12.1</overall>
+            <blockers>1</blockers>
+            <critical>0</critical>
+        </week>
+    </project>
+    <project name="projekt1">
+        <week number="2">
+            <unit>32.2</unit>
+            <overall>12.1</overall>
+            <blockers>1</blockers>
+            <critical>0</critical>
+        </week>
+        <week number="2">
+            <unit>32.2</unit>
+            <overall>12.1</overall>
+            <blockers>1</blockers>
+            <critical>0</critical>
+        </week>
+    </project>
+</report>
+<!--http://stackoverflow.com/questions/3965357/xml-how-to-reference-a-xsd-file-at-xml-file-->
