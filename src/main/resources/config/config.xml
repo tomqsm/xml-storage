@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://biz.letsweb.xml.storage/schemas"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://biz.letsweb.xml.storage/schemas config.xsd">
+    <project name="projekt1">cos tu jest</project>
+    <project name="projekt2"/>
+    <project name="projekt3"/>
+     
+</config>
+<!--http://stackoverflow.com/questions/3965357/xml-how-to-reference-a-xsd-file-at-xml-file-->
+<!--http://www.freeformatter.com/xsd-generator.html-->

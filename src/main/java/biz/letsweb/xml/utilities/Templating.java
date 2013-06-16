@@ -20,22 +20,23 @@ import org.xml.sax.SAXException;
  */
 public class Templating {
 
-    private File location = new File("src/main/resources/template.txt");
+    private File templateFile = new File("src/main/resources/template.txt");
+    private File dataXmlFile = new File("src/main/resources/report.xml");
     private Template template;
 
     public Templating() throws IOException {
         Configuration cfg = new Configuration();
-        cfg.setDirectoryForTemplateLoading(location.getParentFile());
+        cfg.setDirectoryForTemplateLoading(templateFile.getParentFile());
         cfg.setEncoding(new Locale("pl", "PL"), "UTF-8");
         cfg.setObjectWrapper(ObjectWrapper.DEFAULT_WRAPPER);
         cfg.setDefaultEncoding("UTF-8");
         cfg.setOutputEncoding("UTF-8");
-        template = cfg.getTemplate(location.getName());
+        template = cfg.getTemplate(templateFile.getName());
     }
 
     public void parse() throws IOException, TemplateException, SAXException, ParserConfigurationException {
         Map root = new HashMap();
-        loadXml(root, new File("src/main/resources/report.xml"));
+        loadXml(root, dataXmlFile);
         root.put("time", new Date());
         root.put("version", "123");
         FileWriter writer = new FileWriter(new File("src/main/resources/report.txt"));

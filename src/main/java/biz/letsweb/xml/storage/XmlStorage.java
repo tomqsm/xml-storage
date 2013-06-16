@@ -1,5 +1,6 @@
 package biz.letsweb.xml.storage;
 
+import biz.letsweb.xml.generated.config.Config;
 import biz.letsweb.xml.generated.reporting.Report;
 import biz.letsweb.xml.utilities.Templating;
 import freemarker.template.TemplateException;
@@ -18,18 +19,24 @@ public class XmlStorage {
 
     public static void main(String... args) throws IOException, JAXBException, TemplateException, SAXException, ParserConfigurationException {
         System.out.println("Strting ...");
-        File xml = new File("src/main/resources/output.xml");
-        File xsd = new File("src/main/resources/report.xsd");
-        ReportMarshalling reportMarshalling = new ReportMarshalling();
-//        Marshalling.marshal(reportMarshalling.getReport(), xml);
-        if (Marshalling.validateAgainstXSD(FileUtils.openInputStream(xml), FileUtils.openInputStream(xsd))) {
-            Report rep = Marshalling.unmarshal(Report.class, FileUtils.openInputStream(xml));
-            System.out.println("liczba projektów " + rep.getProject().size());
-            System.out.println("retrieved from report: " + rep.getProject().get(0).getName());
-        } else {
-            System.out.println("problem validating");
+//        File xml = new File("src/main/resources/output.xml");
+//        File xsd = new File("src/main/resources/report.xsd");
+//        ReportMarshalling reportMarshalling = new ReportMarshalling();
+////        Marshalling.marshal(reportMarshalling.getReport(), xml);
+//        if (Marshalling.validateAgainstXSD(FileUtils.openInputStream(xml), FileUtils.openInputStream(xsd))) {
+//            Report rep = Marshalling.unmarshal(Report.class, FileUtils.openInputStream(xml));
+//            System.out.println("liczba projektów " + rep.getProject().size());
+//            System.out.println("retrieved from report: " + rep.getProject().get(0).getName());
+//        } else {
+//            System.out.println("problem validating");
+//        }
+//        Templating t = new Templating();
+//        t.parse();
+        
+        Config config = Marshalling.unmarshal(Config.class, FileUtils.openInputStream(new File("src/main/resources/config/config.xml")));
+        System.out.println("projekty: " + config.getProject().size());
+        for(Config.Project p :  config.getProject()){
+            System.out.println(p.getName() + " v: " + p.getValue());
         }
-        Templating t = new Templating();
-        t.parse();
     }
 }

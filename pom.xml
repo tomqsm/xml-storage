@@ -87,17 +87,17 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>hello-xjc</id>
+                        <id>config-xjc</id>
                         <goals>
                             <goal>xjc</goal>
                         </goals>
                         <configuration>
                             <outputDirectory>src/main/java/</outputDirectory>
                             <clearOutputDir>false</clearOutputDir>
-                            <schemaDirectory>src/main/resources</schemaDirectory>
-                            <schemaFiles>hello.xsd</schemaFiles>
-                            <packageName>biz.letsweb.xml.generated.greeting</packageName> <!-- The name of your generated source package -->
-                            <staleFile>${project.build.directory}/jaxb2/.schema1XjcStaleFlagHello</staleFile>
+                            <schemaDirectory>src/main/resources/config</schemaDirectory>
+                            <schemaFiles>config.xsd</schemaFiles>
+                            <packageName>biz.letsweb.xml.generated.config</packageName> <!-- The name of your generated source package -->
+                            <staleFile>${project.build.directory}/jaxb2/.schema1XjcStaleFlagConfig</staleFile>
                         </configuration>
                     </execution>
                 </executions>
